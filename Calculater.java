@@ -13,7 +13,7 @@ public class Calculater {
 
     }
     public static int convert(String a) {
-        try {
+        //try {
 
         if (a.equals("I")) return 1;
         if (a.equals("II")) return 2;
@@ -35,13 +35,14 @@ public class Calculater {
         if (a.equals("8")) return 8;
         if (a.equals("9")) return 9;
         if (a.equals("10")) return 10;//}
-       // return 0;}
+       //return 0;
+       /* { try {
         throw new IOException();}
      catch (IOException e) {
         //throw new InputMismatchException("число должно быть от 1 до 10");
          System.out.println("число должно быть от 1 до 10");
-    }
-      return -1;}
+    }*/
+      return 0;}
     private static String arabToRoman (int numArabian) {
         String[] roman = {"O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
                 "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
@@ -85,11 +86,11 @@ public class Calculater {
             System.out.println(arabToRoman(result));
         }
         else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
-                (Arrays.asList(arabian).contains(a1)) && Arrays.asList(roman).contains(b1)) { try {
+                (Arrays.asList(arabian).contains(a1)) && Arrays.asList(roman).contains(b1) || (((a<1) || (a>10)) || ((b<1) || (b>10))) ) { try {
             throw new IOException();}
         catch (IOException e) {
             //throw new InputMismatchException("число должно быть от 1 до 10");
-            System.out.println("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) ");
+            System.out.println("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
         }
         }
 
