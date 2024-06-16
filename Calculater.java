@@ -64,23 +64,26 @@ public class Calculater {
         Scanner scanner = new Scanner(System.in);
         String[] roman = {"O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
         String[] arabian = {"O", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        String input = scanner.nextLine();
+        String result1=calc(input);
+        System.out.println(result1);
 
-        String[] chisla = scanner.nextLine().split(" ");
-        if (chisla.length!=3){try {
+        //String[] chisla = scanner.nextLine().split(" ");
+      /*  if (chisla.length!=3){try {
             throw new IOException();}
         catch (IOException e) {
             //throw new InputMismatchException("число должно быть от 1 до 10");
             System.out.println("ввести можно только два числа ");
         }
-        }
-        else {
+        }*/
+       /* else {
         String op1 = chisla[1];
         String a1 = chisla[0];
         String b1 = chisla[2];
-        int a=convert(a1);
+        *//*int a=convert(a1);
         int b=convert(b1);
-        char op=convertChar(op1);
-        int result=calc(a,b,op);
+        char op=convertChar(op1);*//*
+
         if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)){
 
             System.out.println(arabToRoman(result));
@@ -100,9 +103,111 @@ public class Calculater {
 
             System.out.println(result);}
 
+    }*/}
+
+public static String calc (String input){
+    String[] roman = {"O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+    String[] arabian = {"O", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+    String[] chisla = input.split(" ");
+    int result=0;
+    if (chisla.length!=3){try {
+        throw new IOException();}
+    catch (IOException e) {
+        //throw new InputMismatchException("число должно быть от 1 до 10");
+        System.out.println("ввести можно только два числа ");
+    }
+    }
+    else {
+        String op1 = chisla[1];
+        String a1 = chisla[0];
+        String b1 = chisla[2];
+
+
+        int a=convert(a1);
+        int b=convert(b1);
+        char op=convertChar(op1);
+
+    switch (op) {
+        case '+':
+            result = a + b;
+            if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)) {
+
+                return (arabToRoman(result));
+            } else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
+                    (Arrays.asList(arabian).contains(a1)) && Arrays.asList(roman).contains(b1) || (((a < 1) || (a > 10)) || ((b < 1) || (b > 10)))) {
+                try {
+                    throw new IOException();
+                } catch (IOException e) {
+                    //throw new InputMismatchException("число должно быть от 1 до 10");
+                    System.out.println("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
+                }
+            }
+            else
+            return  Integer.toString(result);
+            break;
+
+        case '-':
+            result = a - b;
+            if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)) {
+
+                return (arabToRoman(result));
+            } else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
+                    (Arrays.asList(arabian).contains(a1)) && Arrays.asList(roman).contains(b1) || (((a < 1) || (a > 10)) || ((b < 1) || (b > 10)))) {
+                try {
+                    throw new IOException();
+                } catch (IOException e) {
+                    //throw new InputMismatchException("число должно быть от 1 до 10");
+                    System.out.println("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
+                }
+            }
+            else
+                return  Integer.toString(result);
+            break;
+        case '*':
+            result = a * b;
+            if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)) {
+
+                return (arabToRoman(result));
+            } else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
+                    (Arrays.asList(arabian).contains(a1)) && Arrays.asList(roman).contains(b1) || (((a < 1) || (a > 10)) || ((b < 1) || (b > 10)))) {
+                try {
+                    throw new IOException();
+                } catch (IOException e) {
+                    //throw new InputMismatchException("число должно быть от 1 до 10");
+                    System.out.println("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
+                }
+            }
+            else
+                return  Integer.toString(result);
+            break;
+        case '/':
+            result = a / b;
+            if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)) {
+
+                return (arabToRoman(result));
+            } else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
+                    (Arrays.asList(arabian).contains(a1)) && Arrays.asList(roman).contains(b1) || (((a < 1) || (a > 10)) || ((b < 1) || (b > 10)))) {
+                try {
+                    throw new IOException();
+                } catch (IOException e) {
+                    //throw new InputMismatchException("число должно быть от 1 до 10");
+                    System.out.println("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
+                }
+            }
+            else
+                return  Integer.toString(result);
+            break;
+
+
+
+        default:
+            System.out.println("вы ввели неверный символ");
+
+    }
+
+    }
+    return  "";
     }}
-
-
 
         //int a = Integer.parseInt(chisla[0]);
         //int b = Integer.parseInt(chisla[2]);
@@ -111,14 +216,14 @@ public class Calculater {
       // }
        // else {
 
-        public static int calc (int a, int b, char op) {
+       /* public static int calc (int a, int b, char op) {
             int result=0 ;
         switch (op){
             case '+':
 
                 result= a+b;
 
-                /*if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)){
+                *//*if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)){
 
                     System.out.println(arabToRoman(result));
                    }
@@ -135,12 +240,12 @@ public class Calculater {
 
 
 
-                System.out.println(result);}*/
+                System.out.println(result);}*//*
 
                 break;
             case '-':
                  result= a-b;
-                /*if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)){
+                *//*if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)){
                     System.out.println(arabToRoman(result));
                 }
                 else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
@@ -152,11 +257,11 @@ public class Calculater {
                 }
                 }
                 else {
-                System.out.println(result);}*/
+                System.out.println(result);}*//*
                 break;
             case '*':
                  result= a*b;
-              /*  if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)){
+              *//*  if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)){
                     System.out.println(arabToRoman(result));
                 }
                 else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
@@ -168,11 +273,11 @@ public class Calculater {
                 }
                 }
                 else {
-                System.out.println(result);}*/
+                System.out.println(result);}*//*
                 break;
             case '/':
                 result= a/b;
-               /* if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)){
+               *//* if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)){
                     System.out.println(arabToRoman(result));
                 }
                 else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
@@ -184,12 +289,12 @@ public class Calculater {
                 }
                 }
                 else {
-                System.out.println(result);}*/
+                System.out.println(result);}*//*
                 break;
             default:
                 System.out.println("вы ввели неверный символ");
         }  return result;
-        }}//}
+        }*///}
 
 
 
