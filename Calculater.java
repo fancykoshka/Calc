@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.Arrays;
+
 public class Calculater {
     public static char convertChar(String o){
         if (o.equals("+")) return '+';
@@ -57,7 +58,7 @@ public class Calculater {
     }
 
 
-    public static void main (String[] args) {
+    public static void main (String[] args) throws Exception {
 
 
         System.out.println("Введите два целых числа от 1 до 10 через пробел (арабскими либо римскими цифрами в формате 1+1):");
@@ -105,17 +106,18 @@ public class Calculater {
 
     }*/}
 
-public static String calc (String input){
+public static String calc (String input) throws Exception{
     String[] roman = {"O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
     String[] arabian = {"O", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
     String[] chisla = input.split(" ");
     int result=0;
-    if (chisla.length!=3){try {
+    if (chisla.length!=3){/*try {
         throw new IOException();}
     catch (IOException e) {
         //throw new InputMismatchException("число должно быть от 1 до 10");
         System.out.println("ввести можно только два числа ");
-    }
+    }*/
+        throw new Exception("ввести можно только два числа ");
     }
     else {
         String op1 = chisla[1];
@@ -135,16 +137,17 @@ public static String calc (String input){
                 return (arabToRoman(result));
             } else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
                     (Arrays.asList(arabian).contains(a1)) && Arrays.asList(roman).contains(b1) || (((a < 1) || (a > 10)) || ((b < 1) || (b > 10)))) {
-                try {
+                /*try {
                     throw new IOException();
                 } catch (IOException e) {
                     //throw new InputMismatchException("число должно быть от 1 до 10");
                     System.out.println("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
-                }
+                }*/
+                throw new Exception("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
             }
             else
             return  Integer.toString(result);
-            break;
+           // break;
 
         case '-':
             result = a - b;
@@ -153,16 +156,12 @@ public static String calc (String input){
                 return (arabToRoman(result));
             } else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
                     (Arrays.asList(arabian).contains(a1)) && Arrays.asList(roman).contains(b1) || (((a < 1) || (a > 10)) || ((b < 1) || (b > 10)))) {
-                try {
-                    throw new IOException();
-                } catch (IOException e) {
-                    //throw new InputMismatchException("число должно быть от 1 до 10");
-                    System.out.println("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
-                }
+
+                throw new Exception("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
             }
             else
                 return  Integer.toString(result);
-            break;
+           // break;
         case '*':
             result = a * b;
             if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)) {
@@ -170,16 +169,17 @@ public static String calc (String input){
                 return (arabToRoman(result));
             } else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
                     (Arrays.asList(arabian).contains(a1)) && Arrays.asList(roman).contains(b1) || (((a < 1) || (a > 10)) || ((b < 1) || (b > 10)))) {
-                try {
+                throw new Exception("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
+               /* try {
                     throw new IOException();
                 } catch (IOException e) {
                     //throw new InputMismatchException("число должно быть от 1 до 10");
                     System.out.println("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
-                }
+                }*/
             }
             else
                 return  Integer.toString(result);
-            break;
+           // break;
         case '/':
             result = a / b;
             if ((Arrays.asList(roman).contains(a1)) && Arrays.asList(roman).contains(b1)) {
@@ -187,16 +187,17 @@ public static String calc (String input){
                 return (arabToRoman(result));
             } else if (((Arrays.asList(roman).contains(a1)) && Arrays.asList(arabian).contains(b1)) ||
                     (Arrays.asList(arabian).contains(a1)) && Arrays.asList(roman).contains(b1) || (((a < 1) || (a > 10)) || ((b < 1) || (b > 10)))) {
-                try {
+                throw new Exception("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
+               /* try {
                     throw new IOException();
                 } catch (IOException e) {
                     //throw new InputMismatchException("число должно быть от 1 до 10");
                     System.out.println("числа должны быть либо арабскими, либо римскими (1+1) или (I+I) и в диапозоне от 1 до 10 ");
-                }
+                }*/
             }
             else
                 return  Integer.toString(result);
-            break;
+           //break;
 
 
 
